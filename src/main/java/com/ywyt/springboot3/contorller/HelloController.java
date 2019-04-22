@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.xml.ws.Response;
+import java.util.Date;
 
 /**
  * @author xiejin
@@ -30,6 +31,8 @@ public class HelloController {
     public ResponseEntity<User> getUser() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
         User user = (User) ac.getBean("user");
+        user.setCreatetime(new Date());
+
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 }

@@ -6,6 +6,6 @@
     <bean name="user" class="com.ywyt.springboot3.entity.User">
         <property name="userName" value="ketty"/>
         <property name="age" value="28"/>
-        <property name="userId" value="10010"/>
+        <!--<property name="userId" value="10010"/>-->
     </bean>
 </beans>
