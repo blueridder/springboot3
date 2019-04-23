@@ -21,6 +21,7 @@ import java.util.Date;
 @RequestMapping(value="/start")
 public class HelloController {
 
+
     @RequestMapping(value = "/index")
     public ResponseEntity<String> hello() {
         String as = "hello";

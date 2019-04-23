@@ -7,10 +7,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.List;
-
+//@EnableSwagger2表示开启swagger
 @SpringBootApplication
+@EnableSwagger2
 public class Springboot3Application extends WebMvcConfigurerAdapter {
 
     @Override

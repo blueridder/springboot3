@@ -2,6 +2,7 @@ package com.ywyt.springboot3.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,14 +11,16 @@ import java.util.Date;
  * @author xiejin
  * @date 2019/4/22 16:00
  */
-@JsonInclude(JsonInclude.Include.NON_NULL)
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User implements Serializable {
 
     private String userName;
     private Integer age;
     private Integer userId;
-//    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    //    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createtime;
+    @Value("${url.orderUrl}")
+    private String headingPath;
 
     private static final long serialVersionUID = 6799536921259923154L;
 
@@ -51,6 +54,14 @@ public class User implements Serializable {
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
+    }
+
+    public String getHeadingPath() {
+        return headingPath;
+    }
+
+    public void setHeadingPath(String headingPath) {
+        this.headingPath = headingPath;
     }
 
     @Override
