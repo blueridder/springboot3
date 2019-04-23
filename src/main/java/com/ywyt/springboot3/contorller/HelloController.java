@@ -1,6 +1,7 @@
 package com.ywyt.springboot3.contorller;
 
 import com.ywyt.springboot3.entity.User;
+import io.swagger.annotations.Api;
 import javafx.application.Application;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -18,6 +19,7 @@ import java.util.Date;
  * @date 2019/4/22 14:01
  */
 @RestController
+@Api(value = "API-HelloController",description = "欢迎页")
 @RequestMapping(value="/start")
 public class HelloController {
 

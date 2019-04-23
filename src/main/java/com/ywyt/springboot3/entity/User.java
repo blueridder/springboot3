@@ -19,7 +19,6 @@ public class User implements Serializable {
     private Integer userId;
     //    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date createtime;
-    @Value("${url.orderUrl}")
     private String headingPath;
 
     private static final long serialVersionUID = 6799536921259923154L;

@@ -2,6 +2,7 @@ package com.ywyt.springboot3.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.ResponseEntity;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -19,6 +20,10 @@ public class Swagger2 {
     @Bean
     public Docket createRestApi(){
         return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("restfulAPI")
+                .genericModelSubstitutes(ResponseEntity.class)
+                .useDefaultResponseMessages(true)
+                .forCodeGeneration(false)
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.ywyt.springboot3"))
