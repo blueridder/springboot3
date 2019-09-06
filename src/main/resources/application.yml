@@ -1,15 +1,5 @@
-server:
-  port: 8080
-
-dataSource:
-  url: localhost:3307/bbstrong8
-
-url:
-  orderUrl: http://localhost:8004
-
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${dataSource.url}?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: Bbstrong@)!(
+  profiles:
+    active: pro
+
+
