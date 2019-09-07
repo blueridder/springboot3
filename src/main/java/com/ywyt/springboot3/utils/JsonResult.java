@@ -1,4 +1,4 @@
-package com.ywyt.springboot3.entity;
+package com.ywyt.springboot3.utils;
 
 /**
  * @author xiejin

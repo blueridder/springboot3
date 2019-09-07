@@ -1,5 +1,8 @@
 spring:
   profiles:
     active: pro
-
-
+  banner:
+    location: banner.txt
+  devtools:
+    restart:
+      trigger-file: trigger.txt

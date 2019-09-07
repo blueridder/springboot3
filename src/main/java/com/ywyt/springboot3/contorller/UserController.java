@@ -1,16 +1,13 @@
 package com.ywyt.springboot3.contorller;
 
-import com.ywyt.springboot3.entity.JsonResult;
+import com.ywyt.springboot3.utils.JsonResult;
 import com.ywyt.springboot3.entity.User;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
-import springfox.documentation.spring.web.json.Json;
 
-import javax.xml.ws.Response;
 import java.util.*;
 
 /**

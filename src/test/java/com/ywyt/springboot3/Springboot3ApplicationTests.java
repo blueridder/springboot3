@@ -11,6 +11,7 @@ public class Springboot3ApplicationTests {
 
 	@Test
 	public void contextLoads() {
-	}
+        System.out.println("test");
+    }
 
 }

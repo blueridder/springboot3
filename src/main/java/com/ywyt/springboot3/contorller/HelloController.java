@@ -1,7 +1,5 @@
 package com.ywyt.springboot3.contorller;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import com.ywyt.springboot3.conf.DruidConfig;
 import com.ywyt.springboot3.entity.Emp;
 import com.ywyt.springboot3.entity.User;
 import io.swagger.annotations.Api;
@@ -11,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,9 +48,11 @@ public class HelloController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "getEmp")
+    @GetMapping(value = "getEmp")
     public ResponseEntity<Emp> getEmp() {
         return new ResponseEntity<Emp>(emp, HttpStatus.OK);
     }
+
+
 
 }
