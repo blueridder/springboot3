@@ -1,8 +1,10 @@
 package com.ywyt.springboot3.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -13,16 +15,27 @@ import java.util.Map;
  */
 @Component
 @ConfigurationProperties(prefix = "emp")
-public class Emp {
+public class Emp implements Serializable{
+    private static final long serialVersionUID = -8541824424043687647L;
+    private String empId;
     private String lastName;
     private Integer age;
     private Double salary;
     private Boolean boss;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",locale = "zh",timezone = "GMT+8")
     private Date birthday;
     private Map<String,Object> map;
     private List<String> list;
     private Forte forte;
     private List<Forte> forteList;
+
+    public String getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(String empId) {
+        this.empId = empId;
+    }
 
     public String getLastName() {
         return lastName;

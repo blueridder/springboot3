@@ -41,6 +41,7 @@ public class HelloController {
 
     @RequestMapping(value = "getUser")
     public ResponseEntity<User> getUser() {
+        System.out.println("helloController-->getUser");
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
         User user = (User) ac.getBean("user");
         user.setCreatetime(new Date());

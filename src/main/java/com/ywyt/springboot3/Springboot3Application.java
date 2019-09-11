@@ -3,21 +3,29 @@ package com.ywyt.springboot3;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.ywyt.springboot3.conf.RootContextConfiguration;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-//@EnableSwagger2表示开启swagger
+
 @SpringBootApplication
 @ServletComponentScan
-@EnableSwagger2
+//@EnableSwagger2表示开启swagger
+//@EnableSwagger2
+@MapperScan(value = "com.ywyt.springboot3.mapper")
+//开启定时任务
+//@EnableScheduling
+//开启异步任务
+//@EnableAsync
 public class Springboot3Application extends WebMvcConfigurerAdapter {
 
     @Override
@@ -41,7 +49,10 @@ public class Springboot3Application extends WebMvcConfigurerAdapter {
     }
 
     public static void main(String[] args) {
-		SpringApplication.run(Springboot3Application.class, args);
+        AnnotationConfigApplicationContext rootContext = new AnnotationConfigApplicationContext();
+        rootContext.register(RootContextConfiguration.class);
+        rootContext.refresh();
+        SpringApplication.run(Springboot3Application.class, args);
 	}
 
 }

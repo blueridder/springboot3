@@ -19,7 +19,8 @@ import org.springframework.web.context.WebApplicationContext;
  * @date 2019/9/7 9:44
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {Springboot3Application.class})
+//@SpringBootTest(classes = {Springboot3Application.class})
+@SpringBootTest
 //@AutoConfigureMockMvc
 @WebAppConfiguration
 public class MockMvcTest {

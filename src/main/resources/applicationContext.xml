@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean name="user" class="com.ywyt.springboot3.entity.User">
+    <bean name="user" class="com.ywyt.springboot3.entity.User" >
         <property name="userName" value="ketty"/>
         <property name="age" value="28"/>
         <!--<property name="userId" value="10010"/>-->

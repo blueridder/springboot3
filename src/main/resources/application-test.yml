@@ -2,17 +2,18 @@ server:
   port: 9090
 
 dataSource:
-  url: localhost:3307/test
+  url: localhost:3306/testdb
 
 url:
   orderUrl: http://localhost:8004
+
 
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${dataSource.url}?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
     username: root
-    password: Bbstrong@)!(
+    password: admin
     type: com.alibaba.druid.pool.DruidDataSource
     filters: stat
     maxActive: 60
@@ -31,6 +32,7 @@ spring:
     removeAbandonedTimeout: 180
     logAbandoned: true
 
+
   redis:
     database: 5
     host: localhost
@@ -40,19 +42,14 @@ spring:
     jedis:
       pool:
         #连接池中的最大空闲连接，默认值也是8
-        max-idle: 500
+        max-idle: 200
         #连接池中的最小空闲连接，默认是0
         min-idle: 50
         # 如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)
         max-active: 1000
         # 等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException
         max-wait: 2000
-  spring:
-    http:
-      encoding:
-        force: true
-        charset: utf-8
-        enabled: true
+
 emp:
   lastName: 张三
   age: 28
@@ -74,5 +71,10 @@ emp:
   forte:
     name: java
     time: 8
+  emp-id: 10011
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 

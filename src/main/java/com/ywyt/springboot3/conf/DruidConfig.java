@@ -6,13 +6,9 @@ import com.alibaba.druid.support.http.WebStatFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -21,8 +17,8 @@ import java.sql.SQLException;
  * @author xiejin
  * @date 2019/4/24 15:00
  */
-@Configuration
-@Component
+//@Configuration
+//@Component
 //@ConfigurationProperties(prefix = "spring.datasource")
 public class DruidConfig {
     private Logger logger = LoggerFactory.getLogger(DruidConfig.class);
