@@ -1,5 +1,11 @@
 package com.ywyt.springboot3;
 
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.SocketChannel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.CountDownLatch;
@@ -71,5 +77,25 @@ public class StatsDemo {
                 e.printStackTrace();
             }
         }
+
+
     }
+
+    void test() throws IOException {
+        SocketChannel channel = SocketChannel.open();
+        Selector selector = Selector.open();
+        SelectionKey key = channel.register(selector, SelectionKey.OP_READ);
+
+        RandomAccessFile aFile = new RandomAccessFile("/user/version.txt","rw");
+        FileChannel fileChannel = aFile.getChannel();
+        long postion = 0 ;
+        long count = fileChannel.size();
+
+        fileChannel.transferTo(postion, count, channel);
+
+
+    }
+
+
+
 }

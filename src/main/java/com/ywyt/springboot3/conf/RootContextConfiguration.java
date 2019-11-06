@@ -1,15 +1,11 @@
 package com.ywyt.springboot3.conf;
 
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
-import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
 import org.springframework.lang.Nullable;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
-import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
@@ -21,12 +17,12 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @author xiejin
  * @date 2019/9/10 17:04
  */
-@EnableAsync(
-        mode = AdviceMode.PROXY,proxyTargetClass = false,
-        order = Ordered.HIGHEST_PRECEDENCE
-)
+//@EnableAsync(
+//        mode = AdviceMode.PROXY,proxyTargetClass = false,
+//        order = Ordered.HIGHEST_PRECEDENCE
+//)
 @Configuration
-@EnableScheduling
+//@EnableScheduling
 public class RootContextConfiguration implements AsyncConfigurer, SchedulingConfigurer {
 
     @Bean

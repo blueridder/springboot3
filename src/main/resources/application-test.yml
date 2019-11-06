@@ -7,10 +7,13 @@ dataSource:
 url:
   orderUrl: http://localhost:8004
 
+queue-name: vedio.queue
+topic-name: notify.topic
+
 
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name:  com.mysql.jdbc.Driver
     url: jdbc:mysql://${dataSource.url}?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
     username: root
     password: admin
@@ -32,7 +35,6 @@ spring:
     removeAbandonedTimeout: 180
     logAbandoned: true
 
-
   redis:
     database: 5
     host: localhost
@@ -49,7 +51,23 @@ spring:
         max-active: 1000
         # 等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException
         max-wait: 2000
-
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 127.0.0.1:9300
+      repositories:
+        enabled: true
+  activemq:
+    broker-url: tcp://127.0.0.1:61616 #整合jms测试，安装在别的机器，防火墙和端口号记得开放
+    user: admin
+    password: admin
+    pool:
+      enabled: true
+      max-connections: 100
+#  jms:
+#    pub-sub-domain: true
+#集群配置
+#spring.activemq.broker-url=failover:(tcp://localhost:61616,tcp://localhost:61617)
 emp:
   lastName: 张三
   age: 28
@@ -76,5 +94,4 @@ emp:
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
 
